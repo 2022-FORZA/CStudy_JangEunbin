@@ -1,20 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include <string.h>
 
 int main() {
-	char arr[1000001];
-	int word = 1, len;
-	scanf("%[^\n]s", arr);
-	len = strlen(arr);
-	
-	for (int i = 0; i < len-1;i++) {
-		if (arr[i] == ' ') {
-			word++;
-		 }
+	int arr[10] = { 0 }, a, total = 1;
+	for (int i = 0;i < 3;i++) {
+		scanf("%d", &a);
+		total *= a;
 	}
-	if (arr[0] == ' ') {
-		word--;
+	for (int i = total;i >0;i/=10) {
+			arr[i%10]++;
 	}
-	printf("%d", word);
+	for (int i = 0;i < 10;i++) {
+		printf("%d\n", arr[i]);
+	}
 }
